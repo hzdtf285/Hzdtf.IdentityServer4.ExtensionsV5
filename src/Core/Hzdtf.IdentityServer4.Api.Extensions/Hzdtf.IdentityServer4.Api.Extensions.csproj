@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>黄振东</Authors>
+    <Company>Hzdtf</Company>
+    <Product>IdentityServer4 API端扩展AspNet类库</Product>
+    <Description>IdentityServer4 API端扩展AspNet类库，运行在Asp.Net 5以上</Description>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Hzdtf.IdentityServer4.Api.Extensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Hzdtf.IdentityServer4.Api.Extensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Hzdtf.Mini">
+      <HintPath>..\..\Library\Hzdtf.Mini.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Utility">
+      <HintPath>..\..\Library\Hzdtf.Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
