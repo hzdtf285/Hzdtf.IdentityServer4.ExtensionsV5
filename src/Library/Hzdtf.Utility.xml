@@ -213,6 +213,41 @@
             <param name="name">名称</param>
             <returns>连接字符串</returns>
         </member>
+        <member name="F:Hzdtf.Utility.App.defaultCulture">
+            <summary>
+            默认文化
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.App.syncDefaultCulture">
+            <summary>
+            同步默认文化
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.App.DefaultCulture">
+            <summary>
+            默认文化，默认值取当前线程
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.App.IsReturnCulture">
+            <summary>
+            返回对象是否返回文化，默认为否，如果要返回，则程序启动时需要设置
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.App.EVENT_ID_KEY">
+            <summary>
+            事件ID键
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.App.GetTokenFunc">
+            <summary>
+            获取token回调
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.App.GetEventIdFunc">
+            <summary>
+            获取事件ID回调
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Attr.AuthAttribute">
             <summary>
             授权特性
@@ -912,6 +947,42 @@
         <member name="M:Hzdtf.Utility.Cache.TimerRefresh.TimerRefreshCacheBase`1.InitTimer">
             <summary>
             初始化定时器
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.CommonCodeDefine">
+            <summary>
+            公共编码定义
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.NOT_PERMISSION">
+            <summary>
+            没有权限
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.NOT_PERMISSION_CULTURE_KEY">
+            <summary>
+            没有权限文化键
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.DISABLED_ACCESS_CULTURE_KEY">
+            <summary>
+            禁止访问文化键
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.OPER_SUCCESS_KEY">
+            <summary>
+            操作成功文化键
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.OPER_FAILURE_KEY">
+            <summary>
+            操作失败文化键
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.CommonCodeDefine.SYSTEM_EXCEPTION_KEY">
+            <summary>
+            系统发生异常
             </summary>
         </member>
         <member name="T:Hzdtf.Utility.Config.AssemblyConfig.AssemblyConfigInfo">
@@ -3038,6 +3109,186 @@
             <param name="array">数组</param>
             <returns>索引</returns>
         </member>
+        <member name="T:Hzdtf.Utility.Localization.CultureDefine">
+            <summary>
+            文化定义
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureDefine.zh_CN">
+            <summary>
+            简体中文
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureDefine.zh_TW">
+            <summary>
+            繁体中文
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureDefine.en_US">
+            <summary>
+            英文
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Localization.CultureLibraryCache">
+            <summary>
+            文化库缓存
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureLibraryCache.dicCache">
+            <summary>
+            字典缓存
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureLibraryCache.syncDicCache">
+            <summary>
+            同步字典缓存
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Localization.CultureLibraryCache.protoCultureLibrary">
+            <summary>
+            原生文化库读取
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.CultureLibraryCache.Get(System.String)">
+            <summary>
+            根据键获取值
+            </summary>
+            <param name="key">键</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.CultureLibraryCache.GetCache">
+            <summary>
+            获取缓存
+            </summary>
+            <returns>缓存</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.CultureLibraryCache.GetSyncCache">
+            <summary>
+            获取同步的缓存对象，是为了线程安全
+            </summary>
+            <returns>同步的缓存对象</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.CultureLibraryCache.Set(Hzdtf.Utility.Localization.ICultureLibrary)">
+            <summary>
+            设置对象
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.CultureLibraryCache.Get(System.String[])">
+            <summary>
+            根据键数组获取值字典
+            </summary>
+            <param name="keys">键数组</param>
+            <returns>值字典</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Localization.ICultureLibrary">
+            <summary>
+            文化库接口
+            key：键
+            value： { key：文化名称，value：文化对应的值 }
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.ICultureLibrary.Get(System.String[])">
+            <summary>
+            根据键数组获取值字典
+            </summary>
+            <param name="keys">键数组</param>
+            <returns>值字典</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Localization.ILocalization">
+            <summary>
+            本地化接口
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.ILocalization.Get(System.String,System.String)">
+            <summary>
+            根据键获取值
+            </summary>
+            <param name="key">键</param>
+            <param name="defaultValue">默认值</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.ILocalization.Get(System.String,System.String,System.String)">
+            <summary>
+            根据键获取值
+            </summary>
+            <param name="key">键</param>
+            <param name="culture">文化</param>
+            <param name="defaultValue">默认值</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.ILocalization.Get(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            根据键字典获取值字典
+            </summary>
+            <param name="keyDefaultValues">键字典，key：键，value：默认值</param>
+            <param name="culture">文化</param>
+            <returns>值字典</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Localization.LocalizationImpl">
+            <summary>
+            本地化实现
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Localization.LocalizationImpl.CultureLibrary">
+            <summary>
+            文化库
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationImpl.Get(System.String,System.String)">
+            <summary>
+            根据键获取值
+            </summary>
+            <param name="key">键</param>
+            <param name="defaultValue">默认值</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationImpl.Get(System.String,System.String,System.String)">
+            <summary>
+            根据键获取值
+            </summary>
+            <param name="key">键</param>
+            <param name="culture">文化</param>
+            <param name="defaultValue">默认值</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationImpl.Get(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            根据键字典获取值字典
+            </summary>
+            <param name="keyDefaultValues">键字典，key：键，value：默认值</param>
+            <param name="culture">文化</param>
+            <returns>值字典</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationImpl.GetCurrCulture">
+            <summary>
+            获取当前文化
+            </summary>
+            <returns>当前文化</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Localization.LocalizationUtil">
+            <summary>
+            本地化辅助类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationUtil.SetCurrentCulture(System.String)">
+            <summary>
+            设置当前语言文化
+            </summary>
+            <param name="culture">文化</param>
+        </member>
+        <member name="M:Hzdtf.Utility.Localization.LocalizationUtil.GetCurrentCulture">
+            <summary>
+            获取当前语言文化
+            </summary>
+            <returns>文化</returns>
+        </member>
         <member name="T:Hzdtf.Utility.Memorandum.CareTaker`1">
             <summary>
             守护者
@@ -3218,6 +3469,36 @@
             登录时间
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.LoginIp_Name">
+            <summary>
+            登录IP_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.LoginIp">
+            <summary>
+            登录IP
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.Logins_Name">
+            <summary>
+            登录次数_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.Logins">
+            <summary>
+            登录次数
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.LogoutTime_Name">
+            <summary>
+            退出登录时间_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.LogoutTime">
+            <summary>
+            退出登录时间
+            </summary>
+        </member>
         <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.TenantId_Name">
             <summary>
             租户ID_名称
@@ -3235,6 +3516,52 @@
             基本用户信息
             @ 黄振东
             </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Model.BusinessException">
+            <summary>
+            业务异常
+            初步定义：
+            100-9999为平台编码
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.BusinessException.code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BusinessException.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.BusinessException.msg">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BusinessException.Msg">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.BusinessException.desc">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BusinessException.Desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.BusinessException.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="code">编码</param>
+            <param name="msg">消息</param>
+            <param name="desc">描述</param>
         </member>
         <member name="T:Hzdtf.Utility.Model.CodeNameFilterInfo">
             <summary>
@@ -3299,17 +3626,6 @@
         <member name="P:Hzdtf.Utility.Model.DateRangePageInfo.EndDate">
             <summary>
             结束日期
-            </summary>
-        </member>
-        <member name="T:Hzdtf.Utility.Model.ErrCodeDefine">
-            <summary>
-            错误编码定义
-            @ 黄振东
-            </summary>
-        </member>
-        <member name="F:Hzdtf.Utility.Model.ErrCodeDefine.NOT_PERMISSION">
-            <summary>
-            没有权限
             </summary>
         </member>
         <member name="T:Hzdtf.Utility.Model.FilterInfo">
@@ -3938,6 +4254,11 @@
         <member name="P:Hzdtf.Utility.Model.Return.BasicReturnInfo.Desc">
             <summary>
             描述
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Return.BasicReturnInfo.Culture">
+            <summary>
+            文化
             </summary>
         </member>
         <member name="P:Hzdtf.Utility.Model.Return.BasicReturnInfo.Extend">
@@ -5818,6 +6139,18 @@
         <member name="P:Hzdtf.Utility.SystemV2.LocalSystemClock.UtcNow">
             <summary>
             UTC当前时间
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.TheOperation.ITheOperation">
+            <summary>
+            本次操作接口，通常是代表UI的一次一系列进行的操作
+            比如在UI上添加一个数据，后台里进行一系列的处理，由多个处理完成，则代表一个TheOperation
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.TheOperation.ITheOperation.EventId">
+            <summary>
+            事件ID
             </summary>
         </member>
         <member name="T:Hzdtf.Utility.Utils.AuthUtil">
@@ -7763,11 +8096,6 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="F:System.Net.Http.HttpClientExtension.GetTokenFunc">
-            <summary>
-            获取token回调
-            </summary>
-        </member>
         <member name="M:System.Net.Http.HttpClientExtension.Get(System.String)">
             <summary>
             Get请求
@@ -7896,6 +8224,40 @@
             <param name="data">数据</param>
             <returns>任务</returns>
         </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.String,System.Object)">
+            <summary>
+            Patch请求JSON
+            </summary>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <returns>返回字符串</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.Net.Http.HttpClient,System.String,System.Object)">
+            <summary>
+            Patch请求JSON
+            </summary>
+            <param name="httpClient">http客户端</param>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <returns>返回字符串</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.String,System.Object)">
+            <summary>
+            Patch请求JSON
+            </summary>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.Net.Http.HttpClient,System.String,System.Object)">
+            <summary>
+            Patch请求JSON
+            </summary>
+            <param name="httpClient">http客户端</param>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <returns>任务</returns>
+        </member>
         <member name="M:System.Net.Http.HttpClientExtension.AddBearerTokenToHeader(System.Net.Http.HttpClient,System.String)">
             <summary>
             添加token到头里
@@ -7915,6 +8277,13 @@
             创建http客户端
             </summary>
             <returns>http客户端</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.AddEventIdToHeader(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            添加事件ID到头上
+            </summary>
+            <param name="httpClient">http客户端</param>
+            <param name="eventId">事件ID，如果为空，则会回调GetEventIdFunc</param>
         </member>
         <member name="M:System.Net.Http.HttpClientExtension.RequestJson(System.Net.Http.HttpClient,System.String,System.Func{System.Net.Http.HttpContent,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Object)">
             <summary>
@@ -8375,6 +8744,65 @@
             </summary>
             <param name="options">选项配置，如果不传则默认加载appsetting.json</param>
             <returns>配置对象</returns>
+        </member>
+        <member name="T:Grpc.Net.Client.GRpcChannelUtil">
+            <summary>
+            GRpc渠道辅助类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Grpc.Net.Client.GRpcChannelUtil.defaultCustomerOptions">
+            <summary>
+            默认渠道自定义配置选项
+            </summary>
+        </member>
+        <member name="M:Grpc.Net.Client.GRpcChannelUtil.CreateChannel(System.String,System.Action{Grpc.Net.Client.GrpcChannel,Grpc.Core.Metadata},System.Action{Grpc.Core.RpcException},Grpc.Net.Client.GrpcChannelCustomerOptions,Grpc.Net.Client.GrpcChannelOptions)">
+            <summary>
+            创建一个渠道，执行完业务处理方法后，会自动关闭渠道连接
+            </summary>
+            <param name="address">地址</param>
+            <param name="action">回调业务处理方法</param>
+            <param name="exAction">发生异常回调，如果为null，则不会捕获异常</param>
+            <param name="customerOptions">自定义选项配置</param>
+            <param name="options">选项配置</param>
+        </member>
+        <member name="M:Grpc.Net.Client.GRpcChannelUtil.IsRequestGRpc(System.String)">
+            <summary>
+            判断请求内容类型是否GRpc
+            </summary>
+            <param name="requestContentType">请求内容</param>
+            <returns>请求内容类型是否GRpc</returns>
+        </member>
+        <member name="M:Grpc.Net.Client.GRpcChannelUtil.ThrowRpcException(System.Exception,System.String)">
+            <summary>
+            抛出RPC异常
+            </summary>
+            <param name="ex">异常</param>
+            <param name="msg">消息</param>
+        </member>
+        <member name="M:Grpc.Net.Client.GRpcChannelUtil.ThrowReturnFailureRpcException(Hzdtf.Utility.Model.Return.BasicReturnInfo)">
+            <summary>
+            如果返回值是错误则抛出RPC异常
+            </summary>
+            <param name="basicReturn">基本返回</param>
+        </member>
+        <member name="T:Grpc.Net.Client.GrpcChannelCustomerOptions">
+            <summary>
+            GRpc渠道自定义选项配置
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Grpc.Net.Client.GrpcChannelCustomerOptions.IsAddToken">
+            <summary>
+            是否添加Token，设置后，会调用App.GetTokenFunc获取Token
+            默认为是
+            </summary>
+        </member>
+        <member name="P:Grpc.Net.Client.GrpcChannelCustomerOptions.IsAddEventId">
+            <summary>
+            是否添加事件ID，设置后，会调用App.GetEventIdFunc获取事件ID
+            默认为是
+            </summary>
         </member>
     </members>
 </doc>

@@ -63,11 +63,41 @@
             </summary>
             <param name="data">数据</param>
         </member>
+        <member name="T:Hzdtf.Utility.AspNet.Extensions.Culture.CultureMiddleware">
+            <summary>
+            文化中间件
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.AspNet.Extensions.Culture.CultureMiddleware.next">
+            <summary>
+            下一个中间件处理委托
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.Culture.CultureMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="next">下一个中间件处理委托</param>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.Culture.CultureMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            执行
+            </summary>
+            <param name="context">http上下文</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.Culture.CultureMiddleware.GetDefaultCulture">
+            <summary>
+            获取默认的语言文化
+            </summary>
+            <returns>默认的语言文化</returns>
+        </member>
         <member name="T:Hzdtf.Utility.AspNet.Extensions.ExceptionHandle.ApiExceptionHandleMiddleware">
             <summary>
             API异常处理中间件
             只有对路径是从传过来的配置前辍才处理
             会对下一个中间件捕获异常，如果发生异常，会返回BasicReturnInfo对象
+            对于BusinessException业务异常则不会记录日志，会返回BasicReturnInfo对象
             @ 黄振东
             </summary>
         </member>
@@ -99,6 +129,15 @@
             执行
             </summary>
             <param name="context">http上下文</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.ExceptionHandle.ApiExceptionHandleMiddleware.WriteReturnInfo(Microsoft.AspNetCore.Http.HttpContext,Hzdtf.Utility.AspNet.Extensions.ExceptionHandle.ApiExceptionHandleOptions,Hzdtf.Utility.Model.Return.BasicReturnInfo)">
+            <summary>
+            写入返回信息
+            </summary>
+            <param name="context">http上下文</param>
+            <param name="options">Api异常处理选项配置</param>
+            <param name="reInfo">返回信息</param>
             <returns>任务</returns>
         </member>
         <member name="T:Hzdtf.Utility.AspNet.Extensions.ExceptionHandle.ApiExceptionHandleOptions">
@@ -253,13 +292,19 @@
             API权限选项配置
             </summary>
         </member>
-        <member name="M:Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionMiddlewareBase.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionOptions},Hzdtf.Utility.Data.IReader{Hzdtf.Utility.ApiPermission.RoutePermissionInfo[]})">
+        <member name="F:Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionMiddlewareBase.localize">
+            <summary>
+            本地化
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionMiddlewareBase.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionOptions},Hzdtf.Utility.Data.IReader{Hzdtf.Utility.ApiPermission.RoutePermissionInfo[]},Hzdtf.Utility.Localization.ILocalization)">
             <summary>
             构造方法
             </summary>
             <param name="next">下一个中间件处理委托</param>
             <param name="options">路由权限选项配置</param>
             <param name="reader">读取API权限配置</param>
+            <param name="localize">本地化</param>
         </member>
         <member name="M:Hzdtf.Utility.AspNet.Extensions.RoutePermission.RoutePermissionMiddlewareBase.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
@@ -336,6 +381,28 @@
             <param name="prefix">前辍</param>
             <param name="model">模型</param>
         </member>
+        <member name="T:Hzdtf.Utility.AspNet.TheOperation.TheReuestOperation">
+            <summary>
+            本次请求操作
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.AspNet.TheOperation.TheReuestOperation.contextAccessor">
+            <summary>
+            上下文访问
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.AspNet.TheOperation.TheReuestOperation.EventId">
+            <summary>
+            事件ID
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.TheOperation.TheReuestOperation.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="contextAccessor">上下文访问</param>
+        </member>
         <member name="T:Hzdtf.Utility.AspNet.WebApp">
             <summary>
             Web应用类
@@ -353,6 +420,20 @@
             </summary>
             <typeparam name="T">服务类型</typeparam>
             <returns>服务</returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Builder.CultureMiddlewareExtensions">
+            <summary>
+            文化中间件扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Builder.CultureMiddlewareExtensions.UseCulture(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.String)">
+            <summary>
+            使用文化
+            </summary>
+            <param name="app">应用</param>
+            <param name="defaultCulture">默认文化</param>
+            <returns>应用</returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Builder.ApiExceptionHandleMiddlewareExtensions">
             <summary>
@@ -412,6 +493,40 @@
             <param name="app">应用</param>
             <returns>应用</returns>
         </member>
+        <member name="T:Microsoft.AspNetCore.Http.CurrentCultureExtensions">
+            <summary>
+            当前文化扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.CurrentCultureExtensions.SetCurrentCulture(Microsoft.AspNetCore.Http.HttpContext,System.String,System.Int32)">
+            <summary>
+            设置当前语言文化，使用的是Cookies存储，使用之前必须启用Cookies
+            </summary>
+            <param name="context">上下文</param>
+            <param name="culture">文化</param>
+            <param name="expireDay">过期天数，默认为30天</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.CurrentCultureExtensions.GetCurrentCulture(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取当前语言文化，使用的是Cookies存储，使用之前必须启用Cookies
+            </summary>
+            <param name="context">上下文</param>
+            <returns>文化</returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.HttpContextExtensions">
+            <summary>
+            http上下文扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpContextExtensions.GetContextKey(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取上下文键
+            </summary>
+            <param name="context">上下文</param>
+            <returns>上下文键</returns>
+        </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
             <summary>
             HTTP请求扩展类
@@ -432,6 +547,19 @@
             <param name="request">http请求</param>
             <returns>带有Bearer的票据</returns>
         </member>
+        <member name="T:Microsoft.AspNetCore.Routing.RouteValueDictionaryExtensions">
+            <summary>
+            路由值字典扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Routing.RouteValueDictionaryExtensions.GetControllerAction(Microsoft.AspNetCore.Routing.RouteValueDictionary)">
+            <summary>
+            获取控制器和动作
+            </summary>
+            <param name="keyValues">路由字典</param>
+            <returns>控制器和动作，0:控制器;1:动作</returns>
+        </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ApiExceptionHandleServiceExtensions">
             <summary>
             Api异常处理服务扩展类
@@ -445,6 +573,19 @@
             <param name="services">服务收藏</param>
             <param name="options">Api异常处理选项配置</param>
             <returns>服务收藏</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.JsonSerializerOptionsExtensioins">
+            <summary>
+            Json序列化选项扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonSerializerOptionsExtensioins.AddDefaultJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            添加默认的JSON选项
+            </summary>
+            <param name="builder">MVC生成器</param>
+            <returns>MVC生成器</returns>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.HashIpPortLoadBalanceExtensions">
             <summary>

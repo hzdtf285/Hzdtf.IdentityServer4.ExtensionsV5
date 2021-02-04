@@ -288,6 +288,11 @@
             本地ID标签数组
             </summary>
         </member>
+        <member name="P:Hzdtf.Logger.Contract.LogBase.TheOperation">
+            <summary>
+            本地操作
+            </summary>
+        </member>
         <member name="M:Hzdtf.Logger.Contract.LogBase.Trace(System.String,System.Exception,System.String,System.String[])">
             <summary>
             跟踪
