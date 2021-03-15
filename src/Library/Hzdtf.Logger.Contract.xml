@@ -62,12 +62,13 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ContentLogBase.WriteStorage(System.String,System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ContentLogBase.WriteStorage(System.String,System.String,System.String,System.Exception,System.String,System.String[])">
             <summary>
             将消息与异常写入到存储设备里
             </summary>
             <param name="level">级别</param>
             <param name="msg">消息</param>
+            <param name="eventId">事件ID</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
             <param name="tags">标签</param>
@@ -79,12 +80,13 @@
             <param name="logContent">日志内容</param>
             <param name="level">等级</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ContentLogBase.GetLogContent(System.String,System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ContentLogBase.GetLogContent(System.String,System.String,System.String,System.Exception,System.String,System.String[])">
             <summary>
             获取日志内容
             </summary>
             <param name="level">级别</param>
             <param name="msg">消息</param>
+            <param name="eventId">事件ID</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
             <param name="tags">标签</param>
@@ -102,58 +104,64 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Trace(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Trace(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             跟踪
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Debug(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Debug(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             调试
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Info(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Info(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             信息
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Wran(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Wran(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             警告
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Error(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Error(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             错误
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogable.Fatal(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogable.Fatal(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             致命
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
         <member name="T:Hzdtf.Logger.Contract.ILogableAsync">
@@ -162,65 +170,100 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.TraceAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.TraceAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步跟踪
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.DebugAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.DebugAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步调试
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.InfoAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.InfoAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步信息
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.WranAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.WranAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步警告
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.ErrorAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.ErrorAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步错误
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.FatalAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.ILogableAsync.FatalAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步致命
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
+        </member>
+        <member name="T:Hzdtf.Logger.Contract.ILogBusiness">
+            <summary>
+            日志业务接口
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.ILogBusiness.TryLogExec(System.Action,System.Action{Hzdtf.Utility.Model.Return.BasicReturnInfo},System.String,System.String[])">
+            <summary>
+            捕获日志执行
+            当发生异常时，会记录异常日志，同时触发异常回调
+            </summary>
+            <param name="action">执行核心</param>
+            <param name="exceptionCallback">异常回调</param>
+            <param name="eventId">事件ID</param>
+            <param name="logTags">日志标签</param>
+            <returns>返回类型</returns>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.ILogBusiness.TryLogExec``1(System.Func{``0},System.Func{Hzdtf.Utility.Model.Return.BasicReturnInfo,``0},System.String,System.String[])">
+            <summary>
+            捕获日志执行
+            当发生异常时，会记录异常日志，同时触发异常回调
+            </summary>
+            <typeparam name="ReturnT">返回类型</typeparam>
+            <param name="func">执行核心</param>
+            <param name="exceptionCallback">异常回调</param>
+            <param name="eventId">事件ID</param>
+            <param name="logTags">日志标签</param>
+            <returns>返回类型</returns>
         </member>
         <member name="T:Hzdtf.Logger.Contract.ILogRecordLevel">
             <summary>
@@ -293,61 +336,67 @@
             本地操作
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Trace(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Trace(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             跟踪
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Debug(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Debug(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             调试
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Info(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Info(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             信息
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Wran(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Wran(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             警告
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Error(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Error(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             错误
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.Fatal(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.Fatal(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             致命
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.BeforeWriteStorage(System.String,System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.BeforeWriteStorage(System.String,System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             将消息与异常写入到存储设备里前
             </summary>
@@ -355,82 +404,109 @@
             <param name="msg">消息</param>
             <param name="tags">标签</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="ex">异常</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.WriteStorage(System.String,System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.BeforeWriteStorage(System.String,System.String,System.String,System.Exception,System.String,System.String[])">
+            <summary>
+            将消息与异常写入到存储设备里前
+            </summary>
+            <param name="level">级别</param>
+            <param name="msg">消息</param>
+            <param name="eventId">事件ID</param>
+            <param name="tags">标签</param>
+            <param name="source">来源</param>
+            <param name="ex">异常</param>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.LogBase.WriteStorage(System.String,System.String,System.String,System.Exception,System.String,System.String[])">
             <summary>
             将消息与异常写入到存储设备里
             </summary>
             <param name="level">级别</param>
             <param name="msg">消息</param>
+            <param name="eventId">事件ID</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
             <param name="tags">标签</param>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.AppendLocalIdTags(System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.AppendLocalIdTags(System.String,System.String[])">
             <summary>
             追加本地标识标签
             </summary>
+            <param name="eventId">事件ID</param>
             <param name="tag">标签</param>
             <returns>本地标识标签</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.TraceAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.GetEventId(System.String)">
+            <summary>
+            获取事件ID
+            </summary>
+            <param name="eventId">事件ID</param>
+            <returns>事件ID</returns>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.LogBase.TraceAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步跟踪
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.DebugAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.DebugAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步调试
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.InfoAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.InfoAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步信息
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.WranAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.WranAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步警告
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.ErrorAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.ErrorAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步错误
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="M:Hzdtf.Logger.Contract.LogBase.FatalAsync(System.String,System.Exception,System.String,System.String[])">
+        <member name="M:Hzdtf.Logger.Contract.LogBase.FatalAsync(System.String,System.Exception,System.String,System.String,System.String[])">
             <summary>
             异步致命
             </summary>
             <param name="msg">消息</param>
             <param name="ex">异常</param>
             <param name="source">来源</param>
+            <param name="eventId">事件ID</param>
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
@@ -454,6 +530,45 @@
             <param name="level">级别</param>
             <param name="recordLogLevel">记录日志级别</param>
             <returns>是否需要写入日志</returns>
+        </member>
+        <member name="T:Hzdtf.Logger.Contract.LogBusiness">
+            <summary>
+            日志业务
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Logger.Contract.LogBusiness.Log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Logger.Contract.LogBusiness.Localize">
+            <summary>
+            本地化
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.LogBusiness.TryLogExec(System.Action,System.Action{Hzdtf.Utility.Model.Return.BasicReturnInfo},System.String,System.String[])">
+            <summary>
+            捕获日志执行
+            当发生异常时，会记录异常日志，同时触发异常回调
+            </summary>
+            <param name="action">执行核心</param>
+            <param name="exceptionCallback">异常回调</param>
+            <param name="eventId">事件ID</param>
+            <param name="logTags">日志标签</param>
+            <returns>返回类型</returns>
+        </member>
+        <member name="M:Hzdtf.Logger.Contract.LogBusiness.TryLogExec``1(System.Func{``0},System.Func{Hzdtf.Utility.Model.Return.BasicReturnInfo,``0},System.String,System.String[])">
+            <summary>
+            捕获日志执行
+            当发生异常时，会记录异常日志，同时触发异常回调
+            </summary>
+            <typeparam name="ReturnT">返回类型</typeparam>
+            <param name="func">执行核心</param>
+            <param name="exceptionCallback">异常回调</param>
+            <param name="eventId">事件ID</param>
+            <param name="logTags">日志标签</param>
+            <returns>返回类型</returns>
         </member>
         <member name="T:Hzdtf.Logger.Contract.LogLevelEnum">
             <summary>

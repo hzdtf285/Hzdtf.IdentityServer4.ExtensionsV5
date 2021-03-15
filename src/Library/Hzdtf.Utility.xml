@@ -248,6 +248,11 @@
             获取事件ID回调
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.App.TheOperation">
+            <summary>
+            本次操作
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Attr.AuthAttribute">
             <summary>
             授权特性
@@ -2500,6 +2505,27 @@
             从
             </summary>
         </member>
+        <member name="T:Hzdtf.Utility.Enums.CommunicationMode">
+            <summary>
+            通讯方式
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Enums.CommunicationMode.NONE">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Enums.CommunicationMode.HTTP">
+            <summary>
+            HTTP
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Enums.CommunicationMode.GRPC">
+            <summary>
+            GRPC
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Enums.ContentFormatType">
             <summary>
             内容格式类型
@@ -2848,6 +2874,54 @@
             <param name="expr1">表达式1</param>
             <param name="expr2">表达式2</param>
             <returns>组合And后的表达式</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Extensions.ChannelCustomerOptions">
+            <summary>
+            渠道自定义选项配置
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Extensions.ChannelCustomerOptions.IsAddToken">
+            <summary>
+            是否添加Token，设置后，会调用App.GetTokenFunc获取Token
+            默认为是
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Extensions.ChannelCustomerOptions.GetTokenFunc">
+            <summary>
+            获取Token回调
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Extensions.ChannelCustomerOptions.IsAddEventId">
+            <summary>
+            是否添加事件ID，设置后，会调用App.GetEventIdFunc获取事件ID
+            默认为是
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Extensions.ChannelCustomerOptions.ComData">
+            <summary>
+            通用数据
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Extensions.ChannelCustomerOptionsExtensions">
+            <summary>
+            渠道自定义选项扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Extensions.ChannelCustomerOptionsExtensions.GetToken(Hzdtf.Utility.Extensions.ChannelCustomerOptions)">
+            <summary>
+            获取token
+            </summary>
+            <param name="cusOptions">渠道自定义选项</param>
+            <returns>token</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Extensions.ChannelCustomerOptionsExtensions.GetEventId(Hzdtf.Utility.Extensions.ChannelCustomerOptions)">
+            <summary>
+            获取事件ID
+            </summary>
+            <param name="cusOptions">渠道自定义选项</param>
+            <returns>事件ID</returns>
         </member>
         <member name="T:Hzdtf.Utility.Factory.IGeneralFactory`1">
             <summary>
@@ -3511,6 +3585,16 @@
             一般情况没有，特殊情况下有用，如SAAS中的租户
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.TenantIdString_Name">
+            <summary>
+            租户ID字符串_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.TenantIdString">
+            <summary>
+            租户ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Model.BasicUserInfo">
             <summary>
             基本用户信息
@@ -3611,6 +3695,115 @@
             编码名称信息
             @ 黄振东
             </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Model.CommonUseData">
+            <summary>
+            通用数据
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Controller">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Action">
+            <summary>
+            动作
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Path">
+            <summary>
+            路径，小写
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.CommMode">
+            <summary>
+            通讯方式
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.MenuCode">
+            <summary>
+            菜单编码
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.FunctionCode">
+            <summary>
+            功能编码
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.CurrUser">
+            <summary>
+            当前用户
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.EventId">
+            <summary>
+            事件ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Extend">
+            <summary>
+            扩展属性
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.CommonUseData.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Model.CommonUseDataExtensions">
+            <summary>
+            通用数据扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.CommonUseDataExtensions.GetCurrUser(Hzdtf.Utility.Model.CommonUseData)">
+            <summary>
+            获取当前用户
+            </summary>
+            <param name="comData">通用数据</param>
+            <returns>当前用户</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.CommonUseDataExtensions.GetToken(Hzdtf.Utility.Model.CommonUseData)">
+            <summary>
+            获取Token，如果里面的为空，则会执行App.GetTokenFunc() 
+            </summary>
+            <param name="comData">通用数据</param>
+            <returns>Token</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.CommonUseDataExtensions.GetEventId(Hzdtf.Utility.Model.CommonUseData,Hzdtf.Utility.TheOperation.ITheOperation)">
+            <summary>
+            获取事件ID，如果里面的为空，则会执行theOperation.EventId,如果传入的theOperation为null，则会执行 App.TheOperation.EventId
+            </summary>
+            <param name="comData">通用数据</param>
+            <param name="theOperation">本次操作</param>
+            <returns>事件ID</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.CommonUseDataExtensions.GetExtendValue(Hzdtf.Utility.Model.CommonUseData,System.String)">
+            <summary>
+            获取扩展字典值
+            </summary>
+            <param name="comData">通用数据</param>
+            <param name="key">键</param>
+            <returns>扩展字典值</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.CommonUseDataExtensions.GetTag(Hzdtf.Utility.Model.CommonUseData)">
+            <summary>
+            获取标签
+            </summary>
+            <param name="comData">通用数据</param>
+            <returns>扩展字典值</returns>
         </member>
         <member name="T:Hzdtf.Utility.Model.DateRangePageInfo">
             <summary>
@@ -3968,6 +4161,32 @@
             <param name="methodName">方法名</param>
             <returns>方法</returns>
         </member>
+        <member name="T:Hzdtf.Utility.Model.JqGridTreeInfo`1">
+            <summary>
+            JqG网格树信息
+            </summary>
+            <typeparam name="IdT">ID类型</typeparam>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.JqGridTreeInfo`1.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.JqGridTreeInfo`1.Level">
+            <summary>
+            层级，从0开始
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.JqGridTreeInfo`1.IsLeaf">
+            <summary>
+            是否叶子节点
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.JqGridTreeInfo`1.Epanded">
+            <summary>
+            是否展开
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Model.KeyValueInfo`2">
             <summary>
             键值信息
@@ -4130,6 +4349,16 @@
             创建人ID
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.Model.PersonTimeInfo`1.CreaterIdString_Name">
+            <summary>
+            创建人ID字符串_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.PersonTimeInfo`1.CreaterIdString">
+            <summary>
+            创建人ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
+            </summary>
+        </member>
         <member name="F:Hzdtf.Utility.Model.PersonTimeInfo`1.Creater_Name">
             <summary>
             创建人_名称
@@ -4148,6 +4377,16 @@
         <member name="P:Hzdtf.Utility.Model.PersonTimeInfo`1.ModifierId">
             <summary>
             修改人ID
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.PersonTimeInfo`1.ModifierIdString_Name">
+            <summary>
+            修改人ID字符串_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.PersonTimeInfo`1.ModifierIdString">
+            <summary>
+            修改人ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
             </summary>
         </member>
         <member name="F:Hzdtf.Utility.Model.PersonTimeInfo`1.Modifier_Name">
@@ -4180,6 +4419,16 @@
         <member name="P:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantId">
             <summary>
             租户ID
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantIdString_Name">
+            <summary>
+            租户ID字符串_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantIdString">
+            <summary>
+            租户ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
             </summary>
         </member>
         <member name="T:Hzdtf.Utility.Model.SimpleInfoExtensions">
@@ -4572,6 +4821,16 @@
             ID
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.Model.SimpleInfo`1.IdString_Name">
+            <summary>
+            ID字符串_名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.SimpleInfo`1.IdString">
+            <summary>
+            ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
+            </summary>
+        </member>
         <member name="M:Hzdtf.Utility.Model.SimpleInfo`1.Clone">
             <summary>
             浅拷贝
@@ -4662,6 +4921,22 @@
             </summary>
         </member>
         <member name="M:Hzdtf.Utility.Model.UserTool`1.GetCurrUser(Hzdtf.Utility.Model.BasicUserInfo{`0},System.Boolean)">
+            <summary>
+            获取当前用户，如果传入的用户不为null，则取传入的用户。否则调GetCurrUserFunc委托
+            </summary>
+            <param name="currUser">当前用户</param>
+            <param name="notExistsIsOutTestUser">如果不存在是否输出测试用户</param>
+            <returns>当前用户</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.UserTool`1.GetCurrUser(Hzdtf.Utility.Model.CommonUseData,System.Boolean)">
+            <summary>
+            获取当前用户，如果传入的用户不为null，则取传入的用户。否则调GetCurrUserFunc委托
+            </summary>
+            <param name="comUse">通用数据</param>
+            <param name="notExistsIsOutTestUser">如果不存在是否输出测试用户</param>
+            <returns>当前用户</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.UserTool`1.GetCurrUser(System.Object,System.Boolean)">
             <summary>
             获取当前用户，如果传入的用户不为null，则取传入的用户。否则调GetCurrUserFunc委托
             </summary>
@@ -5576,6 +5851,41 @@
             服务提供者
             </summary>
         </member>
+        <member name="T:Hzdtf.Utility.RequestResource.IRequestResource">
+            <summary>
+            请求资源接口
+            key：请求ID，value：资源键
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.RequestResource.RequestResourceCache">
+            <summary>
+            请求资源缓存
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.RequestResource.RequestResourceCache.dicCache">
+            <summary>
+            字典缓存
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.RequestResource.RequestResourceCache.syncDicCache">
+            <summary>
+            同步字典缓存
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.RequestResource.RequestResourceCache.GetCache">
+            <summary>
+            获取缓存
+            </summary>
+            <returns>缓存</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.RequestResource.RequestResourceCache.GetSyncCache">
+            <summary>
+            获取同步的缓存对象，是为了线程安全
+            </summary>
+            <returns>同步的缓存对象</returns>
+        </member>
         <member name="T:Hzdtf.Utility.Resources.DatabasePoolBase">
             <summary>
             数据库池基类
@@ -5898,6 +6208,11 @@
             是否禁用
             </summary>
         </member>
+        <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.ActionInfo.ResourceKey">
+            <summary>
+            资源键
+            </summary>
+        </member>
         <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.ActionInfo.Extend">
             <summary>
             扩展属性
@@ -6149,6 +6464,23 @@
             </summary>
         </member>
         <member name="P:Hzdtf.Utility.TheOperation.ITheOperation.EventId">
+            <summary>
+            事件ID
+            </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.TheOperation.TheOperation">
+            <summary>
+            本次操作
+            使用AsyncLocal进行存储，在本次操作范围内，最好不要跨线程，因为AsyncLocal是线程不安全
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.TheOperation.TheOperation.local">
+            <summary>
+            本地缓存
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.TheOperation.TheOperation.EventId">
             <summary>
             事件ID
             </summary>
@@ -6434,6 +6766,36 @@
             <param name="array">数组</param>
             <param name="value">值</param>
             <returns>新的数组</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.CollectionUtil.ArrayToString``1(``0[])">
+            <summary>
+            将数组里的值转换为数组字符串
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="array">数组</param>
+            <returns>数组字符串</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.CollectionUtil.ArrayToLong(System.String[])">
+            <summary>
+            将字符串数组转换为长整型数组
+            </summary>
+            <param name="array">字符串数组</param>
+            <returns>长整型数组</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.CollectionUtil.ListToString``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            将列表里的值转换为列表字符串
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="list">列表</param>
+            <returns>列表字符串</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.CollectionUtil.ListToLong(System.Collections.Generic.IList{System.String})">
+            <summary>
+            将字符串列表转换为长整型列表
+            </summary>
+            <param name="list">字符串列表</param>
+            <returns>长整型列表</returns>
         </member>
         <member name="T:Hzdtf.Utility.Utils.DataTableUtil">
             <summary>
@@ -6887,7 +7249,7 @@
         </member>
         <member name="M:Hzdtf.Utility.Utils.SqlUtil.CreateWhereSql">
             <summary>
-            创建where语句，初始化内容(包含前面空格)：" WHERE 1=1"
+            创建where语句，初始化内容(包含前面空格)：" WHERE (1=1) "
             </summary>
             <returns>where语句</returns>
         </member>
@@ -7747,6 +8109,11 @@
             @ 黄振东
             </summary>
         </member>
+        <member name="F:System.DateTimeExtensions.MAX_DATE">
+            <summary>
+            最大日期
+            </summary>
+        </member>
         <member name="M:System.DateTimeExtensions.ToFullDateTime(System.DateTime)">
             <summary>
             转换为全部日期时间字符串 yyyy-M-d H:m:s.fff
@@ -7790,6 +8157,13 @@
             <returns>日期字符串</returns>
         </member>
         <member name="M:System.DateTimeExtensions.ToLessThanDate(System.DateTime)">
+            <summary>
+            转换为小于日期，对于SQL查询则需要用小于，而不是小于或等于
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>小于日期</returns>
+        </member>
+        <member name="M:System.DateTimeExtensions.ToLessThanDate(System.Nullable{System.DateTime})">
             <summary>
             转换为小于日期，对于SQL查询则需要用小于，而不是小于或等于
             </summary>
@@ -8096,166 +8470,186 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.Get(System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.Get(System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Get请求
             </summary>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.Get(System.Net.Http.HttpClient,System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.Get(System.Net.Http.HttpClient,System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Get请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.GetAsync(System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.GetAsync(System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Get请求
             </summary>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.GetAsync(System.Net.Http.HttpClient,System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.GetAsync(System.Net.Http.HttpClient,System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Get请求
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PostJson(System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PostJson(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Post请求JSON
             </summary>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PostJson(System.Net.Http.HttpClient,System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PostJson(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Post请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PostJsonAsync(System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PostJsonAsync(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Post请求JSON
             </summary>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PostJsonAsync(System.Net.Http.HttpClient,System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PostJsonAsync(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Post请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.Delete(System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.Delete(System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Delete请求
             </summary>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.Delete(System.Net.Http.HttpClient,System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.Delete(System.Net.Http.HttpClient,System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Get请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.DeleteAsync(System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.DeleteAsync(System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Delete请求
             </summary>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.DeleteAsync(System.Net.Http.HttpClient,System.String)">
+        <member name="M:System.Net.Http.HttpClientExtension.DeleteAsync(System.Net.Http.HttpClient,System.String,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Delete请求
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PutJson(System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PutJson(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Put请求JSON
             </summary>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PutJson(System.Net.Http.HttpClient,System.String,System.Object)">
-            <summary>
-            Put请求JSON
-            </summary>
-            <param name="httpClient">http客户端</param>
-            <param name="url">URL</param>
-            <param name="data">数据</param>
-            <returns>返回字符串</returns>
-        </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PutJsonAsync(System.String,System.Object)">
-            <summary>
-            Put请求JSON
-            </summary>
-            <param name="url">URL</param>
-            <param name="data">数据</param>
-            <returns>任务</returns>
-        </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PutJsonAsync(System.Net.Http.HttpClient,System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PutJson(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Put请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
+            <returns>返回字符串</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PutJsonAsync(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
+            <summary>
+            Put请求JSON
+            </summary>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PutJsonAsync(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
+            <summary>
+            Put请求JSON
+            </summary>
+            <param name="httpClient">http客户端</param>
+            <param name="url">URL</param>
+            <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Patch请求JSON
             </summary>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.Net.Http.HttpClient,System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJson(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Patch请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Patch请求JSON
             </summary>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.Net.Http.HttpClient,System.String,System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.PatchJsonAsync(System.Net.Http.HttpClient,System.String,System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             Patch请求JSON
             </summary>
             <param name="httpClient">http客户端</param>
             <param name="url">URL</param>
             <param name="data">数据</param>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>任务</returns>
         </member>
         <member name="M:System.Net.Http.HttpClientExtension.AddBearerTokenToHeader(System.Net.Http.HttpClient,System.String)">
@@ -8272,20 +8666,14 @@
             <param name="httpClient">http客户端</param>
             <param name="containerBearerToken">包含了bearer token</param>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.CreateHttpClient">
+        <member name="M:System.Net.Http.HttpClientExtension.CreateHttpClient(System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             创建http客户端
             </summary>
+            <param name="customerOptions">自定义选项配置</param>
             <returns>http客户端</returns>
         </member>
-        <member name="M:System.Net.Http.HttpClientExtension.AddEventIdToHeader(System.Net.Http.HttpClient,System.String)">
-            <summary>
-            添加事件ID到头上
-            </summary>
-            <param name="httpClient">http客户端</param>
-            <param name="eventId">事件ID，如果为空，则会回调GetEventIdFunc</param>
-        </member>
-        <member name="M:System.Net.Http.HttpClientExtension.RequestJson(System.Net.Http.HttpClient,System.String,System.Func{System.Net.Http.HttpContent,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Object)">
+        <member name="M:System.Net.Http.HttpClientExtension.RequestJson(System.Net.Http.HttpClient,System.String,System.Func{System.Net.Http.HttpContent,System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}},System.Object,System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions})">
             <summary>
             请求请求JSON
             </summary>
@@ -8293,6 +8681,7 @@
             <param name="method">方法</param>
             <param name="callbackRequest">回调请求</param>
             <param name="data">数据</param>        
+            <param name="customerOptions">自定义选项配置</param>
             <returns>返回字符串</returns>
         </member>
         <member name="T:System.JsonExtensions">
@@ -8751,12 +9140,7 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="F:Grpc.Net.Client.GRpcChannelUtil.defaultCustomerOptions">
-            <summary>
-            默认渠道自定义配置选项
-            </summary>
-        </member>
-        <member name="M:Grpc.Net.Client.GRpcChannelUtil.CreateChannel(System.String,System.Action{Grpc.Net.Client.GrpcChannel,Grpc.Core.Metadata},System.Action{Grpc.Core.RpcException},Grpc.Net.Client.GrpcChannelCustomerOptions,Grpc.Net.Client.GrpcChannelOptions)">
+        <member name="M:Grpc.Net.Client.GRpcChannelUtil.CreateChannel(System.String,System.Action{Grpc.Net.Client.GrpcChannel,Grpc.Core.Metadata},System.Action{Grpc.Core.RpcException},System.Action{Hzdtf.Utility.Extensions.ChannelCustomerOptions},Grpc.Net.Client.GrpcChannelOptions)">
             <summary>
             创建一个渠道，执行完业务处理方法后，会自动关闭渠道连接
             </summary>
@@ -8785,24 +9169,6 @@
             如果返回值是错误则抛出RPC异常
             </summary>
             <param name="basicReturn">基本返回</param>
-        </member>
-        <member name="T:Grpc.Net.Client.GrpcChannelCustomerOptions">
-            <summary>
-            GRpc渠道自定义选项配置
-            @ 黄振东
-            </summary>
-        </member>
-        <member name="P:Grpc.Net.Client.GrpcChannelCustomerOptions.IsAddToken">
-            <summary>
-            是否添加Token，设置后，会调用App.GetTokenFunc获取Token
-            默认为是
-            </summary>
-        </member>
-        <member name="P:Grpc.Net.Client.GrpcChannelCustomerOptions.IsAddEventId">
-            <summary>
-            是否添加事件ID，设置后，会调用App.GetEventIdFunc获取事件ID
-            默认为是
-            </summary>
         </member>
     </members>
 </doc>
