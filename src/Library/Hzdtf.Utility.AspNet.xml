@@ -176,6 +176,18 @@
             Http状态码，默认返回200
             </summary>
         </member>
+        <member name="T:Hzdtf.Utility.AspNet.Extensions.IHttpContextAuthToken">
+            <summary>
+            Http上下文授权票据接口
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.AspNet.Extensions.IHttpContextAuthToken.SetHttpContext(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            设置Http上下文
+            </summary>
+            <param name="context">Http上下文</param>
+        </member>
         <member name="T:Hzdtf.Utility.AspNet.Extensions.RemoteService.UnityServicesOptionsConfiguration">
             <summary>
             统一服务配置来自微软配置对象里
@@ -589,7 +601,7 @@
             <param name="functionCode">功能编码</param>
             <returns>通用数据</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.Http.HttpContextExtensions.CreateBasicCommonUseData(Microsoft.AspNetCore.Http.HttpContext,System.String,System.String,System.String)">
+        <member name="M:Microsoft.AspNetCore.Http.HttpContextExtensions.CreateBasicCommonUseData(Microsoft.AspNetCore.Http.HttpContext,System.String,System.String,System.String,Hzdtf.Utility.Model.IAuthToken)">
             <summary>
             创建基本的通用数据
             </summary>
@@ -597,6 +609,7 @@
             <param name="key">键</param>
             <param name="menuCode">菜单编码</param>
             <param name="functionCode">功能编码</param>
+            <param name="authToken">授权票据</param>
             <returns>基本的通用数据</returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
@@ -625,6 +638,25 @@
             </summary>
             <param name="request">http请求</param>
             <returns>事件ID</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestExtensions.GetClientRequestIP(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取客户端请求IP
+            </summary>
+            <param name="request">http请求</param>
+            <returns>客户端请求IP</returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.HttpResponseExtensions">
+            <summary>
+            Http响应扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpResponseExtensions.AddCorsCookieHeader(Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            为跨域Cookie添加必要的头
+            </summary>
+            <param name="response">http响应</param>
         </member>
         <member name="T:Microsoft.AspNetCore.Routing.RouteValueDictionaryExtensions">
             <summary>
@@ -659,11 +691,13 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.JsonSerializerOptionsExtensioins.AddDefaultJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonSerializerOptionsExtensioins.AddDefaultJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{Microsoft.AspNetCore.Mvc.JsonOptions},System.Boolean)">
             <summary>
             添加默认的JSON选项
             </summary>
             <param name="builder">MVC生成器</param>
+            <param name="jsonOptions">JSON配置回调</param>
+            <param name="isTransBeiJingTimeZone">是否转换为北京时区。如果日期时间遇到后面带有z（代表0时区），则会转换为北京时间（+8H）。默认为否</param>
             <returns>MVC生成器</returns>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.HashIpPortLoadBalanceExtensions">
@@ -687,13 +721,23 @@
         </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.RegisterAssemblyExtensions.RegisterAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,Microsoft.Extensions.DependencyInjection.ServiceLifetime,System.Func{System.Type,System.Boolean})">
             <summary>
-            用DI批量注入接口程序集中对应的实现类。
+            用DI批量注入接口程序集中对应的实现类
             </summary>
             <param name="service">服务收藏</param>
             <param name="interfaceAssemblyName">接口程序集的名称（不包含文件扩展名）</param>
             <param name="implementAssemblyName">实现程序集的名称（不包含文件扩展名）</param>
             <param name="lifecycle">生命周期，默认为瞬时</param>
             <param name="interfacTypeCallback">接口类型回调，key：接口类型；value：是否忽略</param>
+            <returns>服务收藏</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RegisterAssemblyExtensions.RegisterAssemblyWithInterfaceMapImpls(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.DependencyInjection.ServiceLifetime,System.String[])">
+            <summary>
+            用DI批量注入批定接口类型的实现类程序集中的实现类
+            </summary>
+            <param name="service">服务收藏</param>
+            <param name="interfaceType">接口类型</param>
+            <param name="lifecycle">生命周期，默认为瞬时</param>
+            <param name="implClassAssemblys">接口程序集的名称（不包含文件扩展名）</param>
             <returns>服务收藏</returns>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.UnityServicesBuilderExtensions">

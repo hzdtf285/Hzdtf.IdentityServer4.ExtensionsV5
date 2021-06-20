@@ -545,6 +545,21 @@
             事务等级
             </summary>
         </member>
+        <member name="P:Hzdtf.Utility.Attr.TransactionAttribute.IsDistribute">
+            <summary>
+            是否分布式事务，默认为否
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Attr.TransactionAttribute.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Attr.TransactionAttribute.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Attr.ValiAttribute">
             <summary>
             验证特性
@@ -2635,6 +2650,16 @@
             Jwt
             </summary>
         </member>
+        <member name="F:Hzdtf.Utility.Enums.IdentityAuthType.JWT_COOKIE">
+            <summary>
+            Jwt_Cookie存储
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Enums.IdentityAuthType.JWT_COOKIE_HEADER">
+            <summary>
+             Jwt_Cookie存储，验证时，先从Cookie取，取不到再从Header取
+            </summary>
+        </member>
         <member name="T:Hzdtf.Utility.Enums.LifecycleType">
             <summary>
             生命周期类型
@@ -2859,44 +2884,6 @@
             <param name="tags">标签</param>
             <returns>任务</returns>
         </member>
-        <member name="T:Hzdtf.Utility.Expressions.PredicateBuilder">
-            <summary>
-            条件生成器
-            @ 黄振东
-            </summary>
-        </member>
-        <member name="M:Hzdtf.Utility.Expressions.PredicateBuilder.True``1">
-            <summary>
-            True表达式
-            </summary>
-            <typeparam name="T">类型</typeparam>
-            <returns>True表达式</returns>
-        </member>
-        <member name="M:Hzdtf.Utility.Expressions.PredicateBuilder.False``1">
-            <summary>
-            False表达式
-            </summary>
-            <typeparam name="T">类型</typeparam>
-            <returns>False表达式</returns>
-        </member>
-        <member name="M:Hzdtf.Utility.Expressions.PredicateBuilder.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>
-            组合Or表达式
-            </summary>
-            <typeparam name="T">类型</typeparam>
-            <param name="expr1">表达式1</param>
-            <param name="expr2">表达式2</param>
-            <returns>组合Or后的表达式</returns>
-        </member>
-        <member name="M:Hzdtf.Utility.Expressions.PredicateBuilder.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
-            <summary>
-            组合And表达式
-            </summary>
-            <typeparam name="T">类型</typeparam>
-            <param name="expr1">表达式1</param>
-            <param name="expr2">表达式2</param>
-            <returns>组合And后的表达式</returns>
-        </member>
         <member name="T:Hzdtf.Utility.Extensions.ChannelCustomerOptions">
             <summary>
             渠道自定义选项配置
@@ -3029,6 +3016,52 @@
             获取同步缓存对象
             </summary>
             <returns>同步缓存对象</returns>
+        </member>
+        <member name="T:Hzdtf.Utility.Json.DateTimeLocalJsonConvert">
+            <summary>
+            日期时间本地Json转换
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Json.DateTimeLocalJsonConvert.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            读取日期时间
+            </summary>
+            <param name="reader">读取</param>
+            <param name="typeToConvert">类型转换</param>
+            <param name="options">JSON配置选项</param>
+            <returns>日期时间</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Json.DateTimeLocalJsonConvert.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            写入日期时间
+            </summary>
+            <param name="writer">写入</param>
+            <param name="value">值</param>
+            <param name="options">JSON配置选项</param>
+        </member>
+        <member name="T:Hzdtf.Utility.Json.DateTimeNullLocalJsonConvert">
+            <summary>
+            日期时间Null本地Json转换
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Json.DateTimeNullLocalJsonConvert.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            读取日期时间
+            </summary>
+            <param name="reader">读取</param>
+            <param name="typeToConvert">类型转换</param>
+            <param name="options">JSON配置选项</param>
+            <returns>日期时间</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Json.DateTimeNullLocalJsonConvert.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTime},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            写入日期时间
+            </summary>
+            <param name="writer">写入</param>
+            <param name="value">值</param>
+            <param name="options">JSON配置选项</param>
         </member>
         <member name="T:Hzdtf.Utility.LoadBalance.HashIpPortLoadBalance">
             <summary>
@@ -3600,7 +3633,7 @@
             退出登录时间
             </summary>
         </member>
-        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.TenantId_Name">
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.MerchantId_Name">
             <summary>
             租户ID_名称
             一般情况没有，特殊情况下有用，如SAAS中的租户
@@ -3612,12 +3645,12 @@
             一般情况没有，特殊情况下有用，如SAAS中的租户
             </summary>
         </member>
-        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.TenantIdString_Name">
+        <member name="F:Hzdtf.Utility.Model.BasicUserInfo`1.MerchantIdString_Name">
             <summary>
             租户ID字符串_名称
             </summary>
         </member>
-        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.TenantIdString">
+        <member name="P:Hzdtf.Utility.Model.BasicUserInfo`1.MerchantIdString">
             <summary>
             租户ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
             </summary>
@@ -3954,6 +3987,18 @@
             <summary>
             强制删除
             </summary>
+        </member>
+        <member name="T:Hzdtf.Utility.Model.IAuthToken">
+            <summary>
+            授权票据接口
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.IAuthToken.GetToken">
+            <summary>
+            获取票据
+            </summary>
+            <returns>票据</returns>
         </member>
         <member name="T:Hzdtf.Utility.Model.Identitys.GuidId">
             <summary>
@@ -4321,6 +4366,44 @@
             <param name="returnInfo">返回信息</param>
             <returns>转换后的数据</returns>
         </member>
+        <member name="T:Hzdtf.Utility.Model.Page.Paging2Info`1">
+            <summary>
+            分页2信息
+            @ 黄振东
+            </summary>
+            <typeparam name="RowT">行类型</typeparam>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Page.Paging2Info`1.Rows">
+            <summary>
+            列表行
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Page.Paging2Info`1.Page">
+            <summary>
+            页码（从1开始）
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Page.Paging2Info`1.PageSize">
+            <summary>
+            每页记录数
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Page.Paging2Info`1.Records">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.Model.Page.Paging2Info`1.PageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="M:Hzdtf.Utility.Model.Page.Paging2Info`1.ToString">
+            <summary>
+            转换为字符串
+            </summary>
+            <returns>字符串</returns>
+        </member>
         <member name="T:Hzdtf.Utility.Model.Page.PagingInfo`1">
             <summary>
             分页信息
@@ -4438,7 +4521,7 @@
             </summary>
             <typeparam name="IdT">ID类型</typeparam>
         </member>
-        <member name="F:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantId_Name">
+        <member name="F:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.MerchantId_Name">
             <summary>
             租户ID_名称
             </summary>
@@ -4448,12 +4531,12 @@
             租户ID
             </summary>
         </member>
-        <member name="F:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantIdString_Name">
+        <member name="F:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.MerchantIdString_Name">
             <summary>
             租户ID字符串_名称
             </summary>
         </member>
-        <member name="P:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.TenantIdString">
+        <member name="P:Hzdtf.Utility.Model.PersonTimeTenantInfo`1.MerchantIdString">
             <summary>
             租户ID字符串，如果ID类型为长整型，则在JS前端使用此属性为字符串类型，因为JS中长整型会丢失精度
             </summary>
@@ -4882,7 +4965,7 @@
             </summary>
             <typeparam name="IdT">ID类型</typeparam>
         </member>
-        <member name="F:Hzdtf.Utility.Model.SimpleTenanInfo`1.TenantId_Name">
+        <member name="F:Hzdtf.Utility.Model.SimpleTenanInfo`1.MerchantId_Name">
             <summary>
             租户ID_名称
             </summary>
@@ -6189,6 +6272,11 @@
             @ 黄振东
             </summary>
         </member>
+        <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
         <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.Controller">
             <summary>
             控制
@@ -6218,6 +6306,11 @@
             <summary>
             动作信息
             @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.ActionInfo.Id">
+            <summary>
+            ID
             </summary>
         </member>
         <member name="P:Hzdtf.Utility.ApiPermission.RoutePermissionInfo.ActionInfo.Action">
@@ -6521,6 +6614,11 @@
         <member name="F:Hzdtf.Utility.Utils.AuthUtil.AUTH_KEY">
             <summary>
             授权key，值是：Authorization
+            </summary>
+        </member>
+        <member name="F:Hzdtf.Utility.Utils.AuthUtil.COOKIE_AUTH_KEY">
+            <summary>
+            Cookie授权Key，值是：AccessToken
             </summary>
         </member>
         <member name="M:Hzdtf.Utility.Utils.AuthUtil.AddBearerToken(System.String)">
@@ -7356,6 +7454,34 @@
             <param name="isCloseStream">是否关闭流</param>
             <returns>字节数组</returns>
         </member>
+        <member name="M:Hzdtf.Utility.Utils.StreamUtil.ReaderInsideAsyncStreamToString(System.IO.Stream,System.Boolean,System.Int32)">
+            <summary>
+            读取内部异步流并转换为字符串
+            </summary>
+            <param name="stream">流</param>
+            <param name="isCloseStream">是否关闭流</param>
+            <param name="initLength">初始化长度</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.StreamUtil.ReaderInsideAsyncStreamToString(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
+            <summary>
+            读取内部异步流并转换为字符串
+            </summary>
+            <param name="stream">流</param>
+            <param name="encoding">编码</param>
+            <param name="isCloseStream">是否关闭流</param>
+            <param name="initLength">初始化长度</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.StreamUtil.ReaderInsideAsyncStream(System.IO.Stream,System.Boolean,System.Int32)">
+            <summary>
+            读取内部异步流
+            </summary>
+            <param name="stream">流</param>
+            <param name="isCloseStream">是否关闭流</param>
+            <param name="initLength">初始化长度</param>
+            <returns>字节数组</returns>
+        </member>
         <member name="M:Hzdtf.Utility.Utils.StreamUtil.WriteFileContent(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             写入文件内容
@@ -7470,6 +7596,14 @@
             </summary>
             <param name="str">字符串</param>
             <returns>流</returns>
+        </member>
+        <member name="M:Hzdtf.Utility.Utils.StreamUtil.ReadStringForWeb(System.IO.Stream,System.Boolean)">
+            <summary>
+            专门为web提供读取流并转换为字符串
+            </summary>
+            <param name="requestBody">请求流</param>
+            <param name="isCloseStream">是否关闭流</param>
+            <returns>字符串任务</returns>
         </member>
         <member name="T:Hzdtf.Utility.Utils.StringUtil">
             <summary>
@@ -8123,6 +8257,141 @@
             <param name="paramIndex">参数索引位置</param>
             <returns>返回信息</returns>
         </member>
+        <member name="T:System.Linq.OrderbyExtensions">
+            <summary>
+            排序扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="fieldMapSortTypes">字段映射排序类型字典</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IDictionary{System.String,Hzdtf.Utility.Enums.SortType})">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="fieldMapSortTypes">字段映射排序类型字典</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="field">字段</param>
+            <param name="orderBy">排序类型</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.ThenOrderBy``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            第二排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="field">字段</param>
+            <param name="orderBy">排序类型</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String,Hzdtf.Utility.Enums.SortType)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="field">字段</param>
+            <param name="sortType">排序类型</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.ThenOrderBy``1(System.Linq.IQueryable{``0},System.String,Hzdtf.Utility.Enums.SortType)">
+            <summary>
+            第二排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="field">字段</param>
+            <param name="sortType">排序类型</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.ExecOrderBy``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            第二排序
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="query">查询表达式</param>
+            <param name="field">字段</param>
+            <param name="orderMethod">排序方法</param>
+            <returns>查询表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.GetPropertyInfo(System.Type,System.String)">
+            <summary>
+            获取反射
+            </summary>
+            <param name="objType">对象类型</param>
+            <param name="name">名称</param>
+            <returns>属性信息</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.GetOrderExpression(System.Type,System.Reflection.PropertyInfo)">
+            <summary>
+            获取生成表达式
+            </summary>
+            <param name="objType">对象类型</param>
+            <param name="pi">属性信息</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:System.Linq.OrderbyExtensions.GetSortType(System.String)">
+            <summary>
+            获取排序类型
+            </summary>
+            <param name="orderBy">排序类型</param>
+            <returns>排序类型</returns>
+        </member>
+        <member name="T:System.Linq.PredicateBuilder">
+            <summary>
+            条件生成器
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:System.Linq.PredicateBuilder.True``1">
+            <summary>
+            True表达式
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <returns>True表达式</returns>
+        </member>
+        <member name="M:System.Linq.PredicateBuilder.False``1">
+            <summary>
+            False表达式
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <returns>False表达式</returns>
+        </member>
+        <member name="M:System.Linq.PredicateBuilder.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合Or表达式
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="expr1">表达式1</param>
+            <param name="expr2">表达式2</param>
+            <returns>组合Or后的表达式</returns>
+        </member>
+        <member name="M:System.Linq.PredicateBuilder.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合And表达式
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="expr1">表达式1</param>
+            <param name="expr2">表达式2</param>
+            <returns>组合And后的表达式</returns>
+        </member>
         <member name="T:System.AppContextExtensions">
             <summary>
             APP上下文扩展类
@@ -8146,6 +8415,11 @@
         <member name="F:System.DateTimeExtensions.MAX_DATE">
             <summary>
             最大日期
+            </summary>
+        </member>
+        <member name="F:System.DateTimeExtensions.DATE_1970">
+            <summary>
+            1970的日期
             </summary>
         </member>
         <member name="M:System.DateTimeExtensions.ToFullDateTime(System.DateTime)">
@@ -8280,12 +8554,6 @@
             </summary>
             <param name="dateTime">日期时间</param>
             <returns>年月字符串</returns>
-        </member>
-        <member name="M:System.DateTimeExtensions.Date1970">
-            <summary>
-            获取1970年日期
-            </summary>
-            <returns>1970年日期</returns>
         </member>
         <member name="M:System.DateTimeExtensions.AddThisDayLastTime(System.Nullable{System.DateTime})">
             <summary>
@@ -8484,6 +8752,20 @@
             </summary>
             <param name="dateTime">日期时间</param>
             <returns>日期</returns>
+        </member>
+        <member name="M:System.DateTimeExtensions.ToDateTimeFromTimeStamp(System.String)">
+            <summary>
+            将时间戳转换成日期时间
+            </summary>
+            <param name="timeStamp">时间戳</param>
+            <returns>日期时间</returns>
+        </member>
+        <member name="M:System.DateTimeExtensions.ToTimeStampFromDateTime(System.DateTime)">
+            <summary>  
+            将DateTime时间格式转换为Unix时间戳格式  
+            </summary>  
+            <param name="dateTime">日期时间</param>  
+            <returns>时间戳</returns>  
         </member>
         <member name="T:System.ExceptionExtensions">
             <summary>
@@ -8887,6 +9169,29 @@
             追加的属性名称字典，key：属性名，value：值
             </summary>
         </member>
+        <member name="T:System.PagingExtensions">
+            <summary>
+            分页扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:System.PagingExtensions.GetPageIndex(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取页码，从0开始
+            </summary>
+            <param name="page">页码，从1开始</param>
+            <param name="pageSize">每页记录数</param>
+            <param name="total">总记录</param>
+            <returns>页码</returns>
+        </member>
+        <member name="M:System.PagingExtensions.GetSkipRecordIndex(System.Int32,System.Int32)">
+            <summary>
+            获取跳过记录索引
+            </summary>
+            <param name="pageIndex">页码，从0开始</param>
+            <param name="pageSize"></param>
+            <returns>记录索引</returns>
+        </member>
         <member name="T:System.Reflection.ReflectExtensions">
             <summary>
             反射辅助类
@@ -9155,6 +9460,14 @@
             <param name="source">源对象</param>
             <param name="target">目标对象</param>
             <param name="ignoreProp">忽略属性</param>
+        </member>
+        <member name="M:System.Reflection.ReflectExtensions.SetStringNullDefaultValue``1(``0,System.String)">
+            <summary>
+            设置对象的字符串类型如果为null则设置为默认值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <param name="defaultValue">默认值</param>
         </member>
         <member name="T:Microsoft.Extensions.Configuration.ConfigurationFactory">
             <summary>
